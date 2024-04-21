@@ -11,8 +11,6 @@
 #include "./inc/stb_image_resize2.h"
 
 #include <stdio.h>
-
-#include <stdio.h>
 #include <stdlib.h>
 
 typedef struct charmap_t {
@@ -169,11 +167,8 @@ int main(int argc, char *argv[]) {
   int *delays = NULL;
 
   stbi_uc *data = stbi_load_gif_from_memory( buffer, len, &delays, &width, &height, &num_frames, &channels, 0);
-  if (data){
-    free(delays);
-  }
-
-  if (data == NULL) {
+  if (data != NULL) free(delays);
+  else {
     printf("Erro ao carregar o arquivo GIF.\n");
     free(buffer);
     return 1;
@@ -181,11 +176,6 @@ int main(int argc, char *argv[]) {
 
   printf("Dimensões: %d x %d\n", width, height);
   printf("Número de frames: %d\n", num_frames);
-  printf("Canais de cor: %d\n", channels);
-
-  printf("Informações do primeiro frame:\n");
-  printf("Largura: %d\n", width);
-  printf("Altura: %d\n", height);
   printf("Canais de cor: %d\n", channels);
 
   int desired_width = atoi(argv[1]);
@@ -199,7 +189,10 @@ int main(int argc, char *argv[]) {
     stbi_uc *frame_data = data + offset;
 
     stbi_uc *resized_image = resize_image(frame_data, width, height, channels, desired_width, desired_height);
-    if (resized_image == NULL) return EXIT_FAILURE;
+    if (resized_image == NULL) {
+      // TODO: free.
+      return EXIT_FAILURE;
+    }
 
     Color *colors = get_colors_from_image(resized_image, desired_width, desired_height, channels);
     if (colors != NULL) {
