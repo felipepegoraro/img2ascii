@@ -25,3 +25,10 @@ chmod +x sh
 ./sh
 ./img2ascii [N] [FILE.gif]
 ```
+
+exemplo:
+
+<p float="left">
+  <img src="./exemplo.gif" width="400" />
+  <img src="./img/carro.gif" width="400" /> 
+</p>
