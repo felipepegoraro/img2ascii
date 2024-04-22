@@ -28,4 +28,4 @@ chmod +x sh
 
 exemplo:
 
-<img src="./exemplo.gif" width="300" /> 
+<img src="./exemplo.gif" width="500" /> 
