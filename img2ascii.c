@@ -111,8 +111,6 @@ enum fileType test_file_type(FILE *file) {
 }
 
 
-void create_gif(const unsigned char ***mat, int num_frames, int height, int width, const char *output_filename){};
-
 int main(int argc, char *argv[])
 {
   if (argc <= 2) {
