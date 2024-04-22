@@ -30,5 +30,5 @@ exemplo:
 
 <p float="left">
   <img src="./exemplo.gif" width="400" />
-  <img src="./img/carro.gif" width="400" /> 
+  <img src="./img/carro.gif" width="300" /> 
 </p>
